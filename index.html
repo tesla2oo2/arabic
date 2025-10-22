@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Arabic from Uzbek</title>
+  <title>Learn Arabic Flashcards</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Learn Arabic from Uzbek</h1>
-    <input type="text" id="search" placeholder="Search word..." onkeyup="filterWords()">
-    <div id="wordsList"></div>
+    <h1>Arabic Flashcards (UZ → AR)</h1>
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="front" id="cardFront"></div>
+      <div class="back" id="cardBack"></div>
+    </div>
+    <div class="controls">
+      <button onclick="prevWord()">Prev</button>
+      <button onclick="nextWord()">Next</button>
+    </div>
   </div>
   <script src="words.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
