@@ -1,4 +1,8 @@
-const words = [
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const words = [
 { arabic: "أَبٌ", reading: "abun", uzbek: "ota" },
 { arabic: "أُمٌّ", reading: "ummun", uzbek: "ona" },
 { arabic: "أَخٌ", reading: "akhun", uzbek: "aka" },
@@ -177,32 +181,41 @@ const words = [
 ];
 
 
-let currentIndex = 0;
-let flipped = false;
+  let currentIndex = 0;
+  let flipped = false;
 
-function showWord(index) {
   const front = document.getElementById("cardFront");
   const back = document.getElementById("cardBack");
-  front.textContent = words[index].arabic; // Arabic word
-  back.textContent = words[index].reading + " — " + words[index].uzbek; // Reading + Uzbek
-  flipped = false;
-  document.getElementById("flashcard").classList.remove("flipped");
-}
+  const flashcard = document.getElementById("flashcard");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
 
-function flipCard() {
-  flipped = !flipped;
-  document.getElementById("flashcard").classList.toggle("flipped");
-}
+  function showWord(index) {
+    front.textContent = words[index].arabic;
+    back.textContent = words[index].reading + " — " + words[index].uzbek;
+    flipped = false;
+    flashcard.classList.remove("flipped");
+  }
 
-function nextWord() {
-  if(currentIndex < words.length - 1) currentIndex++;
+  function flipCard() {
+    flipped = !flipped;
+    flashcard.classList.toggle("flipped");
+  }
+
+  function nextWord() {
+    currentIndex = (currentIndex + 1) % words.length;
+    showWord(currentIndex);
+  }
+
+  function prevWord() {
+    currentIndex = (currentIndex - 1 + words.length) % words.length;
+    showWord(currentIndex);
+  }
+
+  flashcard.addEventListener("click", flipCard);
+  nextBtn.addEventListener("click", nextWord);
+  prevBtn.addEventListener("click", prevWord);
+
+  // Initialize first word
   showWord(currentIndex);
-}
-
-function prevWord() {
-  if(currentIndex > 0) currentIndex--;
-  showWord(currentIndex);
-}
-
-// Initialize first card
-showWord(currentIndex);
+});
