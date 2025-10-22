@@ -1,0 +1,43 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fdf6e3;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+#search {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+.word-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 1.5em;
+}
+
+.word-item span {
+  display: block;
+  font-size: 1.2em;
+  color: #555;
+}
