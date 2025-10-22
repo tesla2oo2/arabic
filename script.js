@@ -177,29 +177,32 @@ const words = [
 ];
 
 
-function displayWords() {
-  const container = document.getElementById("wordsList");
-  container.innerHTML = "";
-  words.forEach(word => {
-    const div = document.createElement("div");
-    div.classList.add("word-item");
-    div.innerHTML = `<strong>${word.arabic}</strong> <span>${word.reading} — ${word.uzbek}</span>`;
-    container.appendChild(div);
-  });
+let currentIndex = 0;
+let flipped = false;
+
+function showWord(index) {
+  const front = document.getElementById("cardFront");
+  const back = document.getElementById("cardBack");
+  front.textContent = words[index].arabic; // Arabic word
+  back.textContent = words[index].reading + " — " + words[index].uzbek; // Reading + Uzbek
+  flipped = false;
+  document.getElementById("flashcard").classList.remove("flipped");
 }
 
-function filterWords() {
-  const search = document.getElementById("search").value.toLowerCase();
-  const container = document.getElementById("wordsList");
-  container.innerHTML = "";
-  words.filter(word => word.arabic.includes(search) || word.reading.includes(search) || word.uzbek.includes(search))
-       .forEach(word => {
-         const div = document.createElement("div");
-         div.classList.add("word-item");
-         div.innerHTML = `<strong>${word.arabic}</strong> <span>${word.reading} — ${word.uzbek}</span>`;
-         container.appendChild(div);
-       });
+function flipCard() {
+  flipped = !flipped;
+  document.getElementById("flashcard").classList.toggle("flipped");
 }
 
-// Initialize
-displayWords();
+function nextWord() {
+  if(currentIndex < words.length - 1) currentIndex++;
+  showWord(currentIndex);
+}
+
+function prevWord() {
+  if(currentIndex > 0) currentIndex--;
+  showWord(currentIndex);
+}
+
+// Initialize first card
+showWord(currentIndex);
