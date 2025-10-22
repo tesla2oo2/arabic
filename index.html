@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Arabic Flashcards</title>
+  <title>Arabic Flashcards (UZ)</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Arabic Flashcards (UZ → AR)</h1>
+    <h1>Arabic Flashcards (UZ)</h1>
     <div class="flashcard" id="flashcard" onclick="flipCard()">
       <div class="front" id="cardFront"></div>
       <div class="back" id="cardBack"></div>
     </div>
     <div class="controls">
-      <button onclick="prevWord()">Prev</button>
-      <button onclick="nextWord()">Next</button>
+      <button id="prevBtn">Prev</button>
+      <button id="nextBtn">Next</button>
     </div>
   </div>
   <script src="words.js"></script>
