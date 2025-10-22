@@ -1,13 +1,11 @@
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #fdf6e3;
-  color: #333;
-  margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #fdf6e3;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin: 0;
 }
 
 .container {
@@ -15,62 +13,53 @@ body {
 }
 
 h1 {
+  margin-bottom: 20px;
   font-size: 2em;
-  margin-bottom: 30px;
 }
 
 .flashcard {
   width: 400px;
   height: 250px;
-  margin: 0 auto 20px auto;
   perspective: 1000px;
+  margin: 0 auto 20px auto;
   cursor: pointer;
+  position: relative;
 }
 
 .flashcard > div {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background-color: #fff;
+  background: #fff;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
+  font-size: 2.5em;
   backface-visibility: hidden;
   position: absolute;
   transition: transform 0.6s;
   padding: 20px;
+  text-align: center;
 }
 
-.front {
-  background-color: #f7f1e3;
-}
+.front { background: #f7f1e3; }
+.back { background: #ffeaa7; transform: rotateY(180deg); }
 
-.back {
-  background-color: #ffeaa7;
-  transform: rotateY(180deg);
-}
-
-.flashcard.flipped .front {
-  transform: rotateY(180deg);
-}
-
-.flashcard.flipped .back {
-  transform: rotateY(0deg);
-}
+.flashcard.flipped .front { transform: rotateY(180deg); }
+.flashcard.flipped .back { transform: rotateY(0deg); }
 
 .controls button {
+  font-size: 1em;
   padding: 10px 20px;
   margin: 0 10px;
-  font-size: 1em;
-  border-radius: 10px;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
-  background-color: #6c5ce7;
-  color: white;
+  background: #6c5ce7;
+  color: #fff;
 }
 
 .controls button:hover {
-  background-color: #341f97;
+  background: #341f97;
 }
